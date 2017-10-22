@@ -136,8 +136,11 @@ LOGIN_REDIRECT_URL = '/'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ['GMAIL_USERNAME']
-EMAIL_HOST_PASSWORD = os.environ["GMAIL_KEY"]
+# EMAIL_HOST_USER = os.environ['GMAIL_USERNAME']
+# EMAIL_HOST_PASSWORD = os.environ["GMAIL_KEY"]
+EMAIL_HOST_USER = 'mythical.learning@gmail.com'
+EMAIL_HOST_PASSWORD = 'onemorepassword'
+
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Mythical Learning Team <mythical.learning@gmail.com>'
 #----
