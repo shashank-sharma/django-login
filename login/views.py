@@ -30,7 +30,6 @@ def signup(request):
 
             ''' Begin reCAPTCHA validation '''
             recaptcha_response = request.POST.get('g-recaptcha-response')
-            print('response = ',recaptcha_response)
             url = 'https://www.google.com/recaptcha/api/siteverify'
             values = {
                 'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
