@@ -6,6 +6,10 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+class PhoneDetails(models.Model):
+	username = models.CharField(max_length=80)
+	phone_number = models.CharField(max_length=15, blank=True)
+
 # Profile model used for dashboard and settings
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

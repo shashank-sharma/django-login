@@ -10,7 +10,7 @@ from django.db import transaction
 from django.conf import settings
 from django.contrib import messages
 
-from login.forms import SignUpForm, UserForm, ProfileForm
+from login.forms import SignUpForm, UserForm, ProfileForm, PhoneDetailsForm
 from login.tokens import account_activation_token
 
 import smtplib
@@ -27,6 +27,7 @@ def home(request):
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
+        form2 = PhoneDetailsForm(request.POST)
         if form.is_valid():
 
             ''' Begin reCAPTCHA validation '''
@@ -45,7 +46,10 @@ def signup(request):
             if result['success']:
                 print("Success")
                 form.save()
-                messages.success(request, 'New comment added with success!')
+
+                phone = form2.save(commit=False)
+                phone.username = form.cleaned_data['username']
+                phone.save()
 
                 user = form.save(commit=False)
                 user.is_active = False
@@ -66,7 +70,8 @@ def signup(request):
                 messages.error(request, 'Invalid reCAPTCHA. Please try again.', extra_tags='safe')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+        form2 = PhoneDetailsForm()
+    return render(request, 'signup.html', {'form': form, 'form2': form2})
 
 
 def account_activation_sent(request):

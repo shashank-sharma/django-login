@@ -30,8 +30,6 @@
     <li><div class="divider"></div></li>
     <li><a class="subheader">Account</a></li>
     {% if user.is_authenticated %}
-    <li><a class="waves-effect" href="/dashboard">Profile</a></li>
-    <li><a class="waves-effect" href="/settings">Settings</a></li>
     <li><a class="waves-effect" href="/logout">Log out</a></li>
     {% else %}
     <li><a class="waves-effect" href="/login">Login</a></li>
@@ -51,11 +49,8 @@
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
       {% if user.is_authenticated %}
-      <li><a href="/temple">Temple</a></li>
       <li class="right"><a href = "" data-activates='dropdown0' class='dropdown-button'><i class="large material-icons">perm_identity</i></a></li>
       <ul id='dropdown0' class='dropdown-content white'>
-        <li><a href="/dashboard">Profile</a></li>
-        <li><a href="/settings">Settings</a></li>
         <li class="divider"></li>
         <li><a href="/logout">Log out</a></li>
       </ul>
@@ -71,18 +66,18 @@
 
     </div>
     <br><br><br><br><br><br>
-            <footer class="page-footer teal">
+            <footer class="page-footer teal" style="bottom: 0">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">About</h5>
-                <p class="grey-text text-lighten-4">Some random text for some random people</p>
+                <p class="grey-text text-lighten-4">Django login illustration with the help of Python 3.6 and Django 1.11 version</p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">More Links</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="http://shashank-py.blogspot.in/">Blog</a></li>
-                  <li><a class="grey-text text-lighten-3" href="http://shashank-sharma.github.io">Github Blog</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://shashank-sharma.me">My website</a></li>
                   <li><a class="grey-text text-lighten-3" href="https://shashank-sharma.github.io/100-days-of-code/">100DaysOfCode Blog</a></li>
                 </ul>
               </div>
@@ -91,7 +86,7 @@
           <div class="footer-copyright">
             <div class="container">
             Made with Love by Shashank
-            <a class="grey-text text-lighten-4 right" href="#!">Copyright ?</a>
+            <a class="grey-text text-lighten-4 right" href="#!">From India</a>
             </div>
           </div>
         </footer>

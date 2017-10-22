@@ -7,16 +7,30 @@
 <body>
 
     {% block largepagecontent %}
-    <p>Welcome, {{ user.get_full_name }} <small>{{ user.username }}</small>!</p>
-    {% if user.is_authenticated %}
-    <h1>Welcome back</h1>
+
+    <div class="row black" style="color: white; padding-bottom: 50px;">
+        {% if user.is_authenticated %}
+    <div style="padding: 5%">
+        <b><p style="font-size: 42px;">Dashboard</p></b>
+        <b><p class="flow-text" style="color: green">Status: Logged In</p></b>
+        <p class="flow-text">Username: {{ user.username }}</p>
+        <p class="flow-text">Phone number: {{ data.phone_number }}</p>
+        <p class="flow-text">Email: {{ user.email }}</p>
+    </div>
     {% else %}
-    <h1>Not logged in</h1>
+        <div style="padding: 5%;">
+            <div class="col s12 m12 l6 flow-text">
+                <b><p style="font-size: 42px;">Oh no ! You are not logged in</p></b>
+                <center><a href="/signup" class="btn-large">Sign Up</a></center>
+            </div>
+            <div class="col s6 flow-text hide-on-med-and-down left">
+                <center><img src="{% static '/img/github-logo.png' %}"></center>
+                <center><p style="font-size: 32px;">Django login, jump to Github to view code</p></center>
+                <center><a href="https://github.com/shashank-sharma/django-login" class="btn white" style="color: black;">Link</a>
+            </div>
+        </div>
+    </div>
     {% endif %}
-<h1>Hey</h1>
-        {% endblock %} 
-    {% block pagecontent %}
-    <center><a href="/signup" class="btn">Sign Up</a></center>
-    {% endblock %}
+{% endblock %} 
 </body>
 </html>
