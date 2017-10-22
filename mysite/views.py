@@ -8,7 +8,10 @@ def home(request):
 		p = p.objects.filter(username=request.user)
 	except:
 		print('Nothing')
-	return render(request, 'home.html', {'data': p[0]})
+	if(len(p) >= 1):
+		return render(request, 'home.html', {'data': p[0]})
+	else:
+		return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html', {})
