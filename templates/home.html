@@ -1,1 +1,22 @@
-<h1>Hello, World!</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+<html>
+{% block title %}Welcome Home{% endblock %}
+
+<body>
+
+    {% block largepagecontent %}
+    <p>Welcome, {{ user.get_full_name }} <small>{{ user.username }}</small>!</p>
+    {% if user.is_authenticated %}
+    <h1>Welcome back</h1>
+    {% else %}
+    <h1>Not logged in</h1>
+    {% endif %}
+<h1>Hey</h1>
+        {% endblock %} 
+    {% block pagecontent %}
+    <center><a href="/signup" class="btn">Sign Up</a></center>
+    {% endblock %}
+</body>
+</html>

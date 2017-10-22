@@ -115,7 +115,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LdRSRYUAAAAAOnk5yomm1dI9BmQkJWTg_wIlMJ_'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
@@ -129,15 +129,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #----
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'main_home'
+LOGIN_REDIRECT_URL = '/'
 
 # For backend feature
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'Some content'
-EMAIL_HOST_PASSWORD = 'Some content'
+EMAIL_HOST_USER = os.environ['GMAIL_USERNAME']
+EMAIL_HOST_PASSWORD = os.environ["GMAIL_KEY"]
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Mythical Learning Team <mythical.learning@gmail.com>'
 #----
